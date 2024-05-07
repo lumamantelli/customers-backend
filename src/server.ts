@@ -15,7 +15,7 @@ const start = async() => {
     await app.register(routes);
 
     try{
-        await app.listen({ port: 4000 })
+        await app.listen({ host: ("RENDER" in process.env) ? `0.0.0.0` : `localhost`, port: 4000 })
     }catch(err) {
         process.exit(1)
     }
